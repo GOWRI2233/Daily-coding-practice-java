@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Enter the size :");
+        int n = s.nextInt();
+
+        System.out.println("Enter the array value :");
+        int a[] = new int[n];
+
+        for(int i=0;i<n;i++)
+        {
+            a[i] = s.nextInt();
+        }
+
+        int total = 0;
+
+        for(int i=0;i<n;i++)
+        {
+            int num = a[i];
+            int binary = 0;
+            int place = 1;
+
+            while(num>0)
+            {
+                int remainder = num % 2;
+                binary = binary + remainder * place;
+                num = num / 2;
+                place = place * 10;
+            }
+
+            System.out.println(a[i] + "<-" + binary);
+            total = total + binary;
+        }
+
+        System.out.println("The total is : " +total);
+    }
+}
