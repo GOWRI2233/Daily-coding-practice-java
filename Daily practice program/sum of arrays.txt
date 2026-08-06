@@ -1,0 +1,46 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s = new Scanner(System.in);
+	    
+	    int a[] = {60,40,20,30,50,10};
+	    
+	    int a1[] = new int[a.length];
+	    
+	    for(int i=0;i<a.length;i++)
+	    {
+	        a1[i] = a[i];
+	    }
+	    
+	    for(int i=0;i<a1.length;i++)
+	    {
+	        for(int j=i+1;j<a1.length;j++)
+	        {
+	            if(a1[i] > a1[j])
+	            {
+	            int temp = a1[i];
+	            a1[i] = a1[j];
+	            a1[j] = temp;
+	            }
+	        }
+	    }
+	    System.out.println("Original arr : ");
+	    for(int i=0;i<a.length;i++)
+	    {
+	        System.out.print(a[i] + " ");
+	    }
+	    System.out.println("\nNew arr : ");
+	    for(int i=0;i<a1.length;i++)
+	    {
+	        System.out.print(a1[i] + " ");
+	    }
+	    int sum = 0;
+	    for(int i=0;i<a.length;i++)
+	    {
+	        sum =  sum + a[i] + a1[i];
+	    }
+	    System.out.println("\nSum value is : "+sum);
+	   
+	}
+}
