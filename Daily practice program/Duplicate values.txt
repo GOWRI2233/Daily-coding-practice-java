@@ -1,0 +1,37 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int a[] = new int[n];
+		Boolean isDuplicate = false;
+		for(int i=0;i<n;i++)
+		{
+		    a[i] = s.nextInt();
+		}
+		for(int i=0;i<n;i++)
+		{
+		    for(int j=i+1;j<n;j++)
+		    {
+		        if(a[i]==a[j])
+		        {
+		      /* 1 */    System.out.println(i+ " " +j); //This line is used to print the duplicate index value
+		      
+		      /* 2 */    System.out.println(a[i]); // This line is to print which number is duplicate
+		      
+		      /* 3 */    isDuplicate = true; // This shows whether the duplicateis present or not is present print true or false will print
+		                     break; 
+		        // There are three ways to solve this problem
+		        }
+		    }
+		}
+		
+		if (isDuplicate) {
+            System.out.println("True");
+        } else {
+            System.out.println("False");
+        }
+	
+	}
+}
