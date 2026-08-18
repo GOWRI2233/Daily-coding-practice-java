@@ -1,0 +1,37 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the number : ");
+        int n = s.nextInt();
+        System.out.println("Enter the array values : ");
+        int a[] = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i] = s.nextInt();
+        }
+        int sum = a[0];
+        boolean stable = true;
+        for(int i=0;i<n-1;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                sum = sum + a[j];
+            }
+            if(a[i] <= sum)
+            {
+                stable = false;
+                break;
+            }
+        }
+        if(stable)
+        {
+            System.out.println("stable production");
+        }
+        else
+        {
+            System.out.println("Unstable production");
+        }
+    }
+}
