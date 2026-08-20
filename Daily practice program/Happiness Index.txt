@@ -1,0 +1,97 @@
+Happiness Index
+In a smart city, every citizen is assigned a unique numerical Happiness ID. The city uses a special system called the Happiness Index Calculator to determine how positive or negative the ID is.
+
+Given a positive integer N, the system examines each digit of the ID from left to right. The first digit is considered to be at position 1.
+
+For every digit, the system performs the following operations:
+
+Multiply the digit by its position.
+If the resulting value is even, add it to the Happiness Score.
+If the resulting value is odd, subtract it from the Happiness Score.
+After processing all the digits, the system checks whether the ID contains the special lucky digit 7.
+If the ID contains 7, the final Happiness Score is doubled.
+The final calculated value is called the Happiness Index.
+
+Your task is to develop a program that calculates and returns the Happiness Index for the given Happiness ID.
+
+
+Constraints:
+1 ≤ N ≤ 10^9
+
+N contains only numeric digits and is a positive integer.
+
+
+Example:
+Input Format
+
+input1
+
+input1 is a string representing a positive integer N, which denotes the citizen's Happiness ID.
+
+Output Format
+
+integer
+
+Return an integer representing the Happiness Index.
+
+
+Explanation:
+The system processes the Happiness ID 234 as follows:
+
+Digit 2 at position 1 → 2 × 1 = 2 → even → add 2
+Digit 3 at position 2 → 3 × 2 = 6 → even → add 6
+Digit 4 at position 3 → 4 × 3 = 12 → even → add 12
+Final Happiness Score:
+
+2 + 6 + 12 = 20
+ 
+Since the ID 234 does not contain 7, the final Happiness Index is:
+
+20
+
+Public Test Cases:
+#	Input	Expected Output
+1	
+12345
+-15
+2	
+24680
+60
+3	
+13579
+-54
+
+
+Code
+
+import java.util.*;
+public class HappinessIndex {
+    public static void main(String args[])
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the string : ");
+        String str = s.nextLine();
+        
+        int score = 0;
+        for(int i=0;i<str.length();i++)
+        {
+            int digit = str.charAt(i) - '0';
+            int position = i+1;
+            int value = digit * position;
+            if(value%2==0)
+            {
+                score = score + value;
+            }
+            else
+            {
+                score = score - value;
+            }
+        }
+        if(str.contains("7"))
+        {
+            score = score * 2;
+        }
+        System.out.println(score);
+    }
+}
+
